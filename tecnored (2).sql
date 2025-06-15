@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-06-2025 a las 08:31:48
+-- Tiempo de generación: 15-06-2025 a las 05:04:32
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -46,6 +46,22 @@ CREATE TABLE `chat` (
   `cedula_destinatario` varchar(20) DEFAULT NULL,
   `mensaje` text NOT NULL,
   `fecha_hora` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `datos_comprador`
+--
+
+CREATE TABLE `datos_comprador` (
+  `id_factura` int(11) NOT NULL,
+  `cedula` varchar(20) DEFAULT NULL,
+  `nombre` varchar(100) NOT NULL,
+  `apellido` varchar(100) NOT NULL,
+  `telefono` varchar(15) NOT NULL,
+  `fecha_compra` datetime DEFAULT current_timestamp(),
+  `id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -189,6 +205,13 @@ ALTER TABLE `chat`
   ADD KEY `cedula_destinatario` (`cedula_destinatario`);
 
 --
+-- Indices de la tabla `datos_comprador`
+--
+ALTER TABLE `datos_comprador`
+  ADD PRIMARY KEY (`id_factura`),
+  ADD KEY `id_producto` (`id_producto`);
+
+--
 -- Indices de la tabla `equipos`
 --
 ALTER TABLE `equipos`
@@ -246,6 +269,12 @@ ALTER TABLE `chat`
   MODIFY `id_mensaje` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT de la tabla `datos_comprador`
+--
+ALTER TABLE `datos_comprador`
+  MODIFY `id_factura` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de la tabla `equipos`
 --
 ALTER TABLE `equipos`
@@ -291,6 +320,12 @@ ALTER TABLE `asesores`
 ALTER TABLE `chat`
   ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`cedula_remitente`) REFERENCES `usuarios` (`cedula`) ON DELETE CASCADE,
   ADD CONSTRAINT `chat_ibfk_2` FOREIGN KEY (`cedula_destinatario`) REFERENCES `usuarios` (`cedula`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `datos_comprador`
+--
+ALTER TABLE `datos_comprador`
+  ADD CONSTRAINT `datos_comprador_ibfk_1` FOREIGN KEY (`id_producto`) REFERENCES `inventario_venta` (`id_producto`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `estudiantes`

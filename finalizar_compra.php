@@ -164,7 +164,7 @@ $total_compra = 0;
 
             <button type="submit">Confirmar Compra</button>
         </form>
-        <a href="index.php" class="back-link" style="text-align: center; margin-top: 20px;">← Seguir Comprando</a>
+        <a href="tienda.php" class="back-link" style="text-align: center; margin-top: 20px;">← Seguir Comprando</a>
     </div>
 </body>
 </html>
