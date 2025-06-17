@@ -1,0 +1,471 @@
+#sobre-nosotros {
+  background-color: #e8f5e9; /* Fondo verde claro */
+  background: #f1f8e9;
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.sobre-nosotros-preview {
+  background: #f1f8e9;
+  padding: 70px 20px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 100px; /* espacio visual */
+}
+
+.sobre-nosotros-preview .contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.sobre-nosotros-preview h2 {
+  font-size: 3rem;
+  background: linear-gradient(to right, #2e7d32, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  margin-bottom: 25px;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeSlideIn 1.2s ease forwards;
+}
+
+.sobre-nosotros-preview p {
+  font-size: 1.35rem;
+  color: #333;
+  line-height: 1.9;
+  max-width: 880px;
+  margin: 0 auto 40px;
+  animation: fadeInText 1.5s ease-in-out both;
+}
+
+.resaltado {
+  color: #2e7d32;
+  font-weight: bold;
+  background: linear-gradient(to right, #a5d6a7, #ffffff);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.sobre-nosotros-preview em {
+  display: block;
+  margin-top: 10px;
+  font-style: italic;
+  color: #4caf50;
+  font-weight: 600;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slider-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.slider {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1000px;
+  position: relative;
+  height: 220px;
+  border-radius: 15px;
+  flex: 1;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.slide-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 30s linear infinite;
+}
+
+
+.slide {
+  width: 250px;
+  flex-shrink: 0;
+  margin: 0 12px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+.slide:hover {
+  transform: scale(1.08);
+}
+
+.slide img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.btn-ver-mas {
+  margin-top: 3%;
+  display: inline-block;
+  padding: 14px 30px;
+  background: linear-gradient(to right, #66bb6a, #43a047);
+  color: white;
+  text-decoration: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn-ver-mas:hover {
+  background: linear-gradient(to right, #81c784, #388e3c);
+  transform: scale(1.05);
+}
+
+.slider-con-flecha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+  position: relative;
+}
+
+.indicador-seccion {
+  position: relative;
+  right: -220px; /* más a la derecha */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flecha-container {
+  position: absolute;
+  bottom: 20px; /* separada un poco del borde inferior */
+  right: 20%;  /* separada un poco del borde derecho */
+  z-index: 1000; /* para estar encima de otros elementos */
+}
+
+.flecha-circular {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(to bottom, #43a047, #1b5e20);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+  box-shadow: 0 0 15px rgba(0, 128, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulseGlow 1.5s infinite;
+  cursor: pointer;
+}
+
+.flecha-circular:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px rgba(102, 255, 106, 0.9);
+  background: linear-gradient(to bottom, #81c784, #1b5e20);
+}
+
+.flecha-circular:active {
+  transform: scale(0.9);
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(102, 255, 106, 0.9);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+  }
+}
+
+#computadoras {
+  background-color: #f9f9f9;
+}
+.computadoras-seccion {
+  background: #f1f8e9; /* Fondo claro */
+  padding: 60px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2e7d32;
+  animation: fadeInUp 1s ease-in-out; /* Animación de entrada */
+  border-radius: 10px; /* Bordes redondeados */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.computadoras-seccion h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  background: linear-gradient(to right, #2e7d32, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  animation: fadeSlideIn 1.2s ease forwards;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.computadoras-seccion p {
+  font-size: 1.35rem; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  line-height: 1.8; /* Espaciado entre líneas */
+  max-width: 880px; /* Ancho máximo */
+  margin: 0 auto 40px; /* Margen superior e inferior */
+  font-style: italic; /* Cursiva */
+  animation: fadeInText 1.5s ease-in-out both; /* Animación de entrada */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+/* Resaltado */
+.resaltado {
+  background-color: rgba(20, 133, 25, 0.2); /* Fondo verde claro */
+  padding: 0 5px; /* Espaciado horizontal */
+  border-radius: 3px; /* Bordes redondeados */
+}
+
+/* Animación de entrada */
+@keyframes fadeInText {
+  from {
+      opacity: 0;
+      transform: translateY(20px); /* Efecto de desplazamiento */
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0); /* Posición final */
+  }
+}
+/* Grid General */
+
+.grid-imagenes {
+  display: grid;
+  grid-template-columns: repeat(2, 640px); /* Solo caben 2 por fila a ese tamaño */
+  gap: 32px;
+  justify-content: center;
+  max-width: 100px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.grid-item {
+  width: 640px;
+  height: 240px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 8px 24px rgba(46, 125, 50, 0.2);
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, transform 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.grid-item:hover {
+  box-shadow: 0 14px 35px rgba(46, 125, 50, 0.35);
+  transform: translateY(-6px);
+  z-index: 10;
+}
+
+.grid-item img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 18px 18px 0 0;
+  transition: transform 0.4s ease;
+}
+
+.grid-item:hover img {
+  transform: scale(1.07);
+  filter: brightness(0.9);
+}
+
+/* Animación condicional */
+@media (prefers-reduced-motion: no-preference) {
+  .grid-item {
+    animation: fadeInUp 0.8s ease forwards;
+  }
+}
+
+/* Fila superior e inferior */
+
+.fila-superior {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.fila-inferior {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  max-width: 800px;
+  margin: 10px auto 0 auto;
+}
+/* Sección general */
+#inventario {
+  background-color: #f3f4f6;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  text-align: center;
+}
+
+/* Título y subtítulo */
+#inventario h2 {
+  font-size: 3rem;
+  font-weight: 900;
+  margin-bottom: 25px;
+  background: linear-gradient(to right, #2e7d32, #81c784);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  animation: fadeSlideIn 1.2s ease forwards;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+#inventario p {
+  font-size: 1.35rem; /* Tamaño de fuente */
+  color: #333; /* Color del texto */
+  line-height: 1.8; /* Espaciado entre líneas */
+  max-width: 880px; /* Ancho máximo */
+  margin: 0 auto 40px; /* Margen superior e inferior */
+  font-style: italic; /* Cursiva */
+  animation: fadeInText 1.5s ease-in-out both; /* Animación de entrada */
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2); /* Sombra de texto */
+}
+
+/* Resaltado adaptado para inventario */
+#inventario .resaltado {
+  background-color: rgba(20, 133, 25, 0.15); /* fondo verde claro más suave */
+  color: #166529; /* verde oscuro */
+  padding: 0 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+/* Tarjetas de productos */
+.swiper-slide {
+  background: white;
+  border-radius: 1rem;
+  padding: 1rem;
+  width: 18rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.swiper-slide:hover {
+  transform: translateY(-5px);
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.swiper-slide h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-bottom: 0.25rem;
+}
+
+/* Botón */
+.swiper-slide button {
+  background-color: #0c431c;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+}
+
+.swiper-slide button:hover {
+  background-color: #0b2e15;
+}
+
+/* Contenedor del botón */
+#inventario .text-center.mt-4 {
+  margin-top: 2rem; /* espacio arriba */
+}
+
+/* Estilo del botón "Ver catálogo completo" */
+#inventario .btn.btn-success.btn-lg {
+  background-color: #28a745; /* verde bootstrap clásico */
+  border: none;
+  color: white;
+  font-size: 1.25rem;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(40, 167, 69, 0.4);
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+#inventario .btn.btn-success.btn-lg:hover,
+#inventario .btn.btn-success.btn-lg:focus {
+  background-color: #218838; /* verde más oscuro */
+  box-shadow: 0;
+}
+
+/* Ajuste de la paginación (puntitos) del carrusel */
+#inventario .swiper-pagination {
+  bottom: -25px !important;
+}
+
+

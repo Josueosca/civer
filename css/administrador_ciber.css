@@ -1,0 +1,528 @@
+ body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            background-color: #f0f8f0;
+            color: #333;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2e8b57;
+            color: white;
+            padding-top: 20px;
+            height: 100vh;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .sidebar .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #ecf0f1;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+        }
+        .sidebar .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .sidebar ul {
+            list-style-type: none;
+            padding: 0;
+            width: 100%;
+        }
+        .sidebar ul li {
+            width: 100%;
+        }
+        .sidebar ul li a {
+            display: block;
+            padding: 15px 20px;
+            color: white;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .sidebar ul li a:hover, .sidebar ul li a.active {
+            background-color: #3cb371;
+        }
+        .main-content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .header {
+            background-color: #fff;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+        .user-info {
+            font-weight: bold;
+            margin-right: 10px;
+            color: #2e8b57;
+        }
+        /* Estilos para el precio del dólar */
+        .dolar-price-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #e0ffe0;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: 1px solid #b0f0b0;
+        }
+        .dolar-price-display {
+            font-weight: bold;
+            color: #155724;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .dolar-price-display:hover {
+            color: #2e8b57;
+        }
+        .dolar-price-edit {
+            display: none;
+            align-items: center;
+            gap: 5px;
+        }
+        .dolar-price-edit input {
+            width: 80px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+        .dolar-price-edit button {
+            background-color: #2e8b57;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .dolar-price-edit button:hover {
+            background-color: #3cb371;
+        }
+
+        .content-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .content-section h1 {
+            color: #2e8b57;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        .content-section h2 {
+            color: #2e8b57;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            background-color: #f9f9f9;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative; /* Para posicionar el timer */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+        .card-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover; 
+            border-radius: 4px;
+            margin-bottom: 10px;
+            background-color: #e0f2e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-style: italic;
+            overflow: hidden;
+        }
+        .card-image img {
+            max-width: 100%;
+            max-height: 100%;
+            display: block;
+        }
+        .card h3 {
+            color: #2e8b57;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+        .card p {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+        .card .status {
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .status.Disponible {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .status.Ocupado {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+        .status.En-reparacion {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .status.No-disponible {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        /* Cronómetro en la tarjeta */
+        .card-timer {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .card-timer.time-exceeded {
+            background-color: rgba(255, 0, 0, 0.8); /* Rojo si el tiempo se ha excedido */
+        }
+        .card-timer .time-display {
+            font-size: 1.1em;
+        }
+        .card-timer .cost-display-small {
+            font-size: 0.8em;
+            color: #ccc;
+        }
+        /* Información del cliente en la tarjeta */
+        .card-client-info {
+            font-size: 0.85em;
+            color: #555;
+            margin-top: 5px;
+            padding-top: 5px;
+            border-top: 1px dotted #e0e0e0;
+        }
+
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        table th {
+            background-color: #2e8b57;
+            color: white;
+        }
+        table tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        table tr:hover {
+            background-color: #e6ffe6;
+        }
+
+        /* --- Estilos para el botón flotante y los modales --- */
+        .add-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #2e8b57;
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 2em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+        }
+        .add-button:hover {
+            background-color: #3cb371;
+            transform: scale(1.05);
+        }
+
+        /* Modal Base Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #888;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
+            animation: slideDown 0.4s ease-out;
+        }
+
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Estilos del formulario dentro del modal (Agregar Equipo) */
+        #addEquipoModal .modal-content h2 {
+            color: #2e8b57;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        #addEquipoModal .modal-content form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        #addEquipoModal .modal-content label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        #addEquipoModal .modal-content input[type="text"],
+        #addEquipoModal .modal-content input[type="file"],
+        #addEquipoModal .modal-content input[type="number"],
+        #addEquipoModal .modal-content textarea,
+        #addEquipoModal .modal-content select {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        #addEquipoModal .modal-content textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        #addEquipoModal .modal-content button {
+            grid-column: span 2;
+            background-color: #2e8b57;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+        #addEquipoModal .modal-content button:hover {
+            background-color: #3cb371;
+        }
+
+        /* --- Estilos para el Modal de Gestión de Equipo (Nuevo Modal) --- */
+        #manageEquipoModal .modal-content {
+            max-width: 600px;
+            text-align: center;
+        }
+        #manageEquipoModal .modal-content h2 {
+            color: #2e8b57;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        #manageEquipoModal .equipo-details {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+        }
+        #manageEquipoModal .equipo-details p {
+            margin: 5px 0;
+        }
+        #manageEquipoModal .equipo-details strong {
+            color: #2e8b57;
+        }
+
+        #manageEquipoModal .action-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        #manageEquipoModal .action-section h3 {
+            color: #4CAF50;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #ccc;
+            padding-bottom: 5px;
+        }
+        #manageEquipoModal .action-section .timer-display {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #2e8b57;
+            margin: 10px 0;
+        }
+        #manageEquipoModal .action-section .timer-display.time-exceeded {
+            color: #f44336; /* Rojo para tiempo excedido en el modal */
+        }
+        #manageEquipoModal .action-section .cost-display {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #333;
+            margin: 10px 0;
+        }
+        #manageEquipoModal .action-section .cost-display p {
+            font-size: 0.8em;
+            color: #666;
+            margin-top: 5px;
+        }
+        #manageEquipoModal .action-buttons button {
+            background-color: #2e8b57;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+            margin: 5px;
+        }
+        #manageEquipoModal .action-buttons button:hover {
+            background-color: #3cb371;
+        }
+        #manageEquipoModal .action-buttons .stop-button {
+            background-color: #f44336;
+        }
+        #manageEquipoModal .action-buttons .stop-button:hover {
+            background-color: #da190b;
+        }
+
+        #manageEquipoModal .estado-form,
+        #manageEquipoModal .iniciar-sesion-form {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            background-color: #fcfcfc;
+        }
+        #manageEquipoModal .iniciar-sesion-form label,
+        #manageEquipoModal .estado-form label {
+            text-align: left; 
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 5px;
+            display: block; 
+        }
+        #manageEquipoModal .iniciar-sesion-form input,
+        #manageEquipoModal .iniciar-sesion-form select,
+        #manageEquipoModal .estado-form select {
+            width: calc(100% - 20px); 
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; 
+        }
+        #manageEquipoModal .iniciar-sesion-form button,
+        #manageEquipoModal .estado-form button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px; 
+        }
+        #manageEquipoModal .iniciar-sesion-form button:hover,
+        #manageEquipoModal .estado-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Animaciones */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Alerts */
+        .alert {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+        }
+        .alert.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .alert.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }

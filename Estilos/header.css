@@ -1,0 +1,44 @@
+header {
+    position: relative;
+    background: linear-gradient(to right, #81c784, #388e3c, #2e7d32); /* Verde más fuerte y contrastante */
+    color: #ffffff;
+    padding: 70px 0;
+    text-align: center;
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% calc(100% - 40px),
+      50% 100%,
+      0 calc(100% - 40px)
+    );
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    z-index: 900;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #ffffff, #dcedc8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: glow 1.5s ease-in-out infinite alternate;
+    letter-spacing: 1px;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  }
+  
+  header p {
+    font-size: 1.2rem;
+    margin-top: 15px;
+    color: #e8f5e9;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  }
+  
+  @keyframes glow {
+    0% {
+      text-shadow: 0 0 8px #ffffff;
+    }
+    100% {
+      text-shadow: 0 0 25px #a5d6a7;
+    }
+  }
+  

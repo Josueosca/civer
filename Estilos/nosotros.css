@@ -1,0 +1,225 @@
+/* Tipografía general y fondo */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+  }
+  
+  /* Sección Misión, Visión, Valores */
+  section.row.mb-5 > div {
+    background: white;
+    padding: 25px 20px;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  
+  section.row.mb-5 > div:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 123, 255, 0.3);
+  }
+  
+  section.row.mb-5 h3 {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-weight: 600;
+  }
+  
+  section.row.mb-5 ul {
+    padding-left: 1.2rem;
+    margin: 0;
+    list-style-type: disc;
+  }
+  
+  section.row.mb-5 ul li {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  /* Historia */
+  section.mb-5 h2 {
+    color: #0056b3;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  section.mb-5 p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #444;
+  }
+  
+  /* Equipo */
+  .team-member img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border: 4px solid #007bff;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member img:hover {
+    transform: scale(1.1);
+    border-color: #0056b3;
+  }
+  
+  .team-member h5 {
+    font-weight: 600;
+    margin-top: 12px;
+    color: #222;
+  }
+  
+  .team-member p {
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Servicios */
+  section.mb-5 ul.list-group {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 15px rgba(0, 123, 255, 0.15);
+  }
+  
+  section.mb-5 ul.list-group li.list-group-item {
+    font-weight: 500;
+    font-size: 1.05rem;
+    color: #333;
+    background: #ffffff;
+    border: none;
+    border-bottom: 1px solid #eee;
+    padding: 15px 25px;
+    transition: background-color 0.3s ease;
+    cursor: default;
+  }
+  
+  section.mb-5 ul.list-group li.list-group-item:last-child {
+    border-bottom: none;
+  }
+  
+  section.mb-5 ul.list-group li.list-group-item:hover {
+    background-color: #e7f1ff;
+  }
+  
+  /* Ubicación */
+  address {
+    font-style: normal;
+    font-size: 1rem;
+    color: #555;
+    max-width: 400px;
+    margin-bottom: 1rem;
+  }
+  
+  .ratio iframe {
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Formulario de contacto */
+  form {
+    max-width: 700px;
+    margin: 0 auto;
+    background: white;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  form label {
+    font-weight: 600;
+    color: #333;
+  }
+  
+  form input.form-control,
+  form textarea.form-control {
+    border-radius: 8px;
+    border: 1.5px solid #ced4da;
+    transition: border-color 0.3s ease;
+  }
+  
+  form input.form-control:focus,
+  form textarea.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+  }
+  
+  form button.btn-primary {
+    border-radius: 50px;
+    padding: 10px 30px;
+    font-weight: 700;
+    letter-spacing: 1.1px;
+    transition: background-color 0.3s ease;
+  }
+  
+  form button.btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Validación */
+  .was-validated .form-control:invalid,
+  .form-control.is-invalid {
+    border-color: #dc3545;
+    box-shadow: none;
+  }
+  
+  .was-validated .form-control:valid,
+  .form-control.is-valid {
+    border-color: #28a745;
+    box-shadow: none;
+  }
+  
+  /* Redes sociales */
+  .social-icons a {
+    color: #007bff;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+  }
+  
+  .social-icons a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  /* Tabla Horarios */
+  table.table {
+    max-width: 350px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+  }
+  
+  table.table thead th {
+    background-color: #007bff;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+  }
+  
+  table.table tbody td {
+    text-align: center;
+  }
+  
+  /* Responsive */
+  @media (max-width: 767px) {
+    section.row.mb-5 > div {
+      margin-bottom: 1.5rem;
+    }
+  
+    .social-icons a {
+      display: inline-block;
+      margin-bottom: 0.7rem;
+    }
+  }
+  

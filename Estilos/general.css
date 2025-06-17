@@ -1,0 +1,36 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el cuerpo ocupe al menos la altura de la ventana */
+    font-family: 'Arial', sans-serif; /* Fuente general */
+    background-color: #f8f9fa; /* Color de fondo general */
+    margin: 0; /* Elimina márgenes por defecto */
+  }
+  
+  main {
+    flex: 1; /* Permite que el área principal ocupe el espacio restante */
+  }
+  
+  footer {
+    background-color: #343a40; /* Color de fondo del pie de página */
+    color: white; /* Color del texto */
+    padding: 20px 0; /* Espaciado */
+    text-align: center; /* Centra el texto del pie de página */
+  }
+  
+  footer small {
+    font-size: 14px; /* Tamaño de la fuente */
+  }
+  
+  .card {
+    transition: transform 0.3s; /* Transición suave para la tarjeta */
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); /* Efecto al pasar el ratón */
+  }
+
+
+  section {
+    padding: 60px 0; /* Espaciado vertical para las secciones */
+  }
